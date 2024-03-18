@@ -1,0 +1,32 @@
+<h1 class="t-center">Ng Style Demo</h1>
+<div style="margin-top:30px">
+  Select Gender:
+  <select [(ngModel)]="gender">
+    <option value="">-- Select --</option>
+    <option value="m">Male</option>
+    <option value="f">Female</option>
+  </select>
+</div>
+<hr />
+<ng-container *ngIf="gender else empty">
+  <h1 class="t-center">
+    <span [ngStyle]="{'color':(gender=='m'?'blue':'green'), 'background-color':(gender=='m'?'chocolate':'pink')}">You are a {{gender=='m'?"Boy":"Girl"}}</span>
+  </h1>
+</ng-container>
+<ng-template #empty>
+  <h1 class="t-center">
+    <span class="none">Please select a gender</span>
+  </h1>
+</ng-template>
+<div class="footer">
+  <h3>Explanation:</h3>
+  <ul>
+    <li>Select gender from dropdown</li>
+    <li>Based on selected gender's internal value,The message will be displayed</li>
+    <ul>
+      <li>In code, 4 If-else statement used</li>
+      <li>In code, only one HTML element(span) is used that will have color based on dynamically css property added based on selected gender</li>
+    </ul>
+    <li>If no gender is selected then default message will be displayed</li>
+  </ul>
+</div>

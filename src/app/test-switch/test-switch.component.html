@@ -1,0 +1,29 @@
+<h1 class="t-center"> Ng Switch Directive Demo</h1>
+<div style="margin-top:30px">
+  Select Gender:
+  <select [(ngModel)]="gender">
+    <option value="">-- Select --</option>
+    <option value="m">Male</option>
+    <option value="f">Female</option>
+  </select>
+</div>
+<hr />
+<h1 style="margin-top:10px;width:100%" class="t-center">
+  <ng-container [ngSwitch]="gender">
+    <span *ngSwitchCase="'m'" class="boy">You are a Boy</span>
+    <span *ngSwitchCase="'f'" class="girl">You are a Girl</span>
+    <span *ngSwitchDefault class="none">Please select a gender</span>
+  </ng-container>
+</h1>
+<div class="footer">
+  <h3>Explanation:</h3>
+  <ul>
+    <li>Select gender from dropdown</li>
+    <li>Based on selected gender's internal value,The message will be displayed</li>
+    <ul>
+      <li>In code, 2 switch-case clause and 1 default clause used </li>
+      <li>Instead of adding multiple IF statements,its recommanded to use switch statement due to its internal MAP table created while code-compilation process</li>
+    </ul>
+    <li>If no gender is selected then default message will be displayed</li>
+  </ul>
+</div>

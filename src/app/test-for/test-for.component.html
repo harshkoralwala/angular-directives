@@ -1,0 +1,76 @@
+<h1 class="t-center"> NgFor Directive Demo</h1>
+<table style="width:100%;" border="1">
+  <thead>
+    <th>
+      <h3 class="t-center">All City List</h3>
+    </th>
+    <th>
+      <h3 class="t-center">All City List + Metro city with red color</h3>
+    </th>
+    <th>
+      <h3 class="t-center">All City List with index + First and Last City with Red color</h3>
+    </th>
+    <th>
+      <h3 class="">City with even indexes</h3>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="col-0">
+        <ul>
+          <li *ngFor="let city of cityList">{{city.name}} </li>
+        </ul>
+      </td>
+      <td id="col-1">
+        <ul>
+          <li *ngFor="let city of cityList;">
+            <span [ngClass]="{'metro':city.isMetroCity}">{{city.name}}</span>
+          </li>
+        </ul>
+      </td>
+      <td id="col-2">
+        <ul>
+          <li *ngFor="let city of cityList; let i = index; let first = first ;let last = last;">
+            <span [ngClass]="{'first-last':first ||last}">{{city.name}} || {{i}} </span>
+          </li>
+        </ul>
+      </td>
+      <td id="col-3">
+        <ul>
+          <ng-container *ngFor="let city of cityList; let i = index;">
+            <li *ngIf="i!=0 && i%2==0">
+              <span>{{city.name}} || {{i}} </span>
+            </li>
+          </ng-container>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="footer">
+  <h3>Explanation:</h3>
+  <ul>
+    <li>First Column:
+      <ul>
+        <li>It displays all cities without any condition(simple for loop)</li>
+      </ul>
+    </li>
+    <li>Second Column:
+      <ul>
+        <li>It displays all cities + metro cities with red color (For loop with condition)</li>
+      </ul>
+    </li>
+    <li>Third Column:
+      <ul>
+        <li>It displays all cities with index + first and last city with red color (For loop with condition)</li>
+      </ul>
+    </li>
+    <li>Forth Column:
+      <ul>
+        <li>It displays only cities that has even index number</li>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,26 @@
+<h1 class="t-center"> NgIf Directive Demo</h1>
+<div style="margin-top:30px">
+    Select Gender:
+    <select [(ngModel)]="gender">
+        <option value="">-- Select --</option>
+        <option value="m">Male</option>
+        <option value="f">Female</option>
+    </select>
+</div>
+<hr />
+<h1 style="margin-top:10px;width:100%" class="t-center">
+    <span *ngIf="gender=='m'" class="boy">You are a Boy</span>
+    <span *ngIf="gender=='f'" class="girl">You are a Girl</span>
+    <span *ngIf="!gender" class="none">Please select a gender</span>
+</h1>
+<div class="footer">
+    <h3>Explanation:</h3>
+    <ul>
+        <li>Select gender from dropdown</li>
+        <li>Based on selected gender's internal value,The Message will be displayed</li>
+        <ul>
+            <li>In code, three times NgIf directives are used (i.e multiple if condition)</li>
+        </ul>
+        <li>If no gender is selected then default message will be displayed</li>
+    </ul>
+</div>

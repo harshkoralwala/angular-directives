@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'ngswitch', component: TestSwitchComponent },
   { path: 'ngclass', component: TestNGClassComponent },
   { path: 'ngstyle', component: TestNgStyleComponent },
-  { path: 'ngSwitch', component: TestSwitchComponent },
   { path: 'menu', component: MenuComponent },
   { path: '**', redirectTo: '/menu', pathMatch: 'full' }
 
